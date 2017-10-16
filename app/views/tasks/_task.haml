@@ -1,0 +1,20 @@
+%tr.item{:id => "task_#{task.id}", :data => { :id => task.id }}
+  %td
+    = link_to update_status_task_path(task, :completed => task.completed), remote: true,:method=> :patch do 
+      -if task.completed? 
+        %span.glyphicon.glyphicon-check
+      -else
+        %span.glyphicon.glyphicon-unchecked
+  %td= task.name
+  %td
+    - if task.tags.any?
+      -task.tags.each do |tag|
+        = render partial: 'tags/tag_view', locals: {tag: tag}
+  %td
+    - if task.attachment.present?
+      = link_to "Download", task.attachment_url
+  %td
+    = link_to task, :class => 'btn align-with-h1 pull-right btn-sm btn-danger',remote: true, :method => 'delete', :title => 'Delete', :'data-confirm' => 'Are you sure?' do
+      %span.glyphicon.glyphicon-trash
+    = link_to edit_task_path(task), remote: true, :title => 'edit', :class => 'btn btn-sm btn-primary align-with-h1 pull-right' do
+      %span.glyphicon.glyphicon-edit

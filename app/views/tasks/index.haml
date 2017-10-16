@@ -1,0 +1,12 @@
+.container
+  = render 'shared/page_title', title: 'Tasks'
+  .new-task
+  %table.table{:id => "sortable"}
+    %thead
+      %tr
+        %th status
+        %th name
+        %th tags
+        %th attachment
+    %tbody#tasks= render @tasks
+  = render 'shared/dialog'

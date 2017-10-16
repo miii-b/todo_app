@@ -1,0 +1,9 @@
+.container
+  = render 'shared/page_title', title: 'Tags'
+  .new-tag
+  %table.table{:id => ""}
+    %thead
+      %tr
+        %th name
+    %tbody#tags= render @tags
+  = render 'shared/dialog'

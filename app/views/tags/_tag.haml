@@ -1,0 +1,7 @@
+%tr{:id => "tag_#{tag.id}"}
+  %td= tag.name
+  %td
+    = link_to tag, :class => 'btn align-with-h1 pull-right btn-sm btn-danger',remote: true, :method => 'delete', :title => 'Delete', :'data-confirm' => 'Are you sure?' do
+      %span.glyphicon.glyphicon-trash
+    = link_to edit_tag_path(tag), remote: true, :title => 'edit', :class => 'btn btn-sm btn-primary align-with-h1 pull-right' do
+      %span.glyphicon.glyphicon-edit

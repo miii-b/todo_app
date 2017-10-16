@@ -1,0 +1,8 @@
+%p
+%h1= title
+= link_to new_task_path, remote: true, :class => 'btn btn-primary' do
+        %span.glyphicon.glyphicon-plus-sign
+        Add new Task
+= link_to new_tag_path, remote: true, :class => 'btn btn-primary' do
+        %span.glyphicon.glyphicon-plus-sign
+        Add new Tag
